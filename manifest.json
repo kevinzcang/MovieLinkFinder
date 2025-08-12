@@ -1,6 +1,6 @@
 {
-  "name": "IMDb ID Finder",
-  "short_name": "IMDbFinder",
+  "name": "Movie Link Finder",
+  "short_name": "MovieFinder",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
