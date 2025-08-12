@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>IMDb ID Finder</title>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0b74de">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Movie Link Finder</h1>
+      <p class="subtitle">Search movies, pick the right result, get the IMDb ID & open IMDb.</p>
+    </header>
+    <section class="base-url">
+      <label for="baseUrlInput">Free Movie Site Base URL:</label>
+      <input type="text" id="baseUrlInput" placeholder="https://111movies.com" value="https://111movies.com" style="width: 100%; padding: 8px; margin: 8px 0; box-sizing: border-box;">
+    </section>
+
+    <section class="search">
+      <div class="toggle-switch" style="margin-left: 10px;">
+        <input type="checkbox" id="typeSwitch" class="toggle-switch-checkbox" />
+        <label for="typeSwitch" class="toggle-switch-label">
+          <span class="toggle-switch-inner" data-yes="Movie" data-no="Show"></span>
+          <span class="toggle-switch-switch"></span>
+        </label>
+      </div>
+      <input id="q" type="search" placeholder="Search a movie or show" aria-label="movie search">
+      <button id="searchBtn">Search</button>
+    </section>
+
+    <section id="results" class="results" aria-live="polite"></section>
+
+    <section id="details" class="details hidden"></section>
+
+    <footer>
+      <small>Uses the OMDb API. Get a free API key at <a href="https://www.omdbapi.com/apikey.aspx" target="_blank">omdbapi.com</a>.</small>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+
+  <script>
+    // Register service worker for PWA (optional, fails silently if unavailable)
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').catch(()=>{});
+    }
+  </script>
+</body>
+</html>
